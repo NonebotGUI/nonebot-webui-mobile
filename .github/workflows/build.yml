@@ -24,12 +24,6 @@ jobs:
       - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Fetch Version
-        run: |
-          sudo snap install yq
-          nbgui_version=$(yq eval '.version' pubspec.yaml)
-          echo "NBGUI_VERSION=$nbgui_version" >> $GITHUB_ENV
-
       - name: Build APK
         run: |
           mkdir dist
@@ -81,6 +75,11 @@ jobs:
           name: "app-x86_64-release.apk"
           path: dist/
           
+      - name: Fetch Version
+        run: |
+          sudo snap install yq
+          nbgui_version=$(yq eval '.version' pubspec.yaml)
+          echo "NBGUI_VERSION=$nbgui_version" >> $GITHUB_ENV
           
       - name: Release
         uses: softprops/action-gh-release@v2
