@@ -34,6 +34,9 @@ jobs:
         run: |
           mkdir dist
           flutter build apk --release --split-per-abi
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk dist/app-armeabi-v7a-release.apk
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk dist/app-arm64-v8a-release.apk
+          cp build/app/outputs/flutter-apk/app-x86_64-release.apk dist/app-x86_64-release.apk
 
   release:
     needs: build
@@ -46,37 +49,37 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-arm64-v8a-release.apk
-          path: build/app/outputs/flutter-apk/
+          path: dist/
 
       - name: Upload APK(ARMv7)
         uses: actions/upload-artifact@v4
         with:
           name: app-armeabi-v7a-release.apk
-          path: build/app/outputs/flutter-apk/
+          path: dist/
 
       - name: Upload APK(x86_64)
         uses: actions/upload-artifact@v4
         with:
           name: app-x86_64-release.apk
-          path: build/app/outputs/flutter-apk/    
+          path: dist/    
           
       - name: Download Artifact(ARM64)
         uses: actions/download-artifact@v4
         with:
           name: "app-arm64-v8a-release.apk"
-          path: build/app/outputs/flutter-apk/
+          path: dist/
 
       - name: Download Artifact(ARMv7)
         uses: actions/download-artifact@v4
         with:
           name: "app-armeabi-v7a-release.apk"
-          path: build/app/outputs/flutter-apk/
+          path: dist/
 
       - name: Download Artifact(x86_64)
         uses: actions/download-artifact@v4
         with:
           name: "app-x86_64-release.apk"
-          path: build/app/outputs/flutter-apk/
+          path: dist/
           
           
       - name: Release
@@ -89,6 +92,6 @@ jobs:
           generate_release_notes: true
           token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
           files: |
-            build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
-            build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
-            build/app/outputs/flutter-apk/app-x86_64-release.apk
+            dist/app-armeabi-v7a-release.apk
+            dist/app-arm64-v8a-release.apk
+            dist/app-x86_64-release.apk
