@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:nonebot_webui_mobile/main.dart';
 import 'package:nonebot_webui_mobile/utils/global.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ManagePlugin extends StatefulWidget {
   const ManagePlugin({super.key});
@@ -61,6 +63,7 @@ class _HomeScreenState extends State<ManagePlugin> {
 
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.fromLTRB(32, 20, 32, 12),
@@ -219,9 +222,7 @@ class _HomeScreenState extends State<ManagePlugin> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor:
-            Config.theme['color'] == 'light' ||
-                Config.theme['color'] == 'default'
+        selectedItemColor: themeNotifier.themeMode == ThemeMode.light
             ? const Color.fromRGBO(234, 82, 82, 1)
             : const Color.fromRGBO(147, 112, 219, 1),
         onTap: _onItemTapped,

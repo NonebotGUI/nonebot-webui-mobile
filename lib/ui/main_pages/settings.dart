@@ -233,6 +233,30 @@ class _HomeScreenState extends State<Settings> {
                 ],
               ),
               const SizedBox(height: 16),
+              Row(
+                children: [
+                  const Expanded(child: Text('Bot终端自动换行')),
+                  Switch(
+                    value: Config.autoWrap == 1,
+                    trackColor: MaterialStateProperty.resolveWith<Color?>((
+                      Set<MaterialState> states,
+                    ) {
+                      if (!states.contains(MaterialState.selected)) {
+                        return Colors.grey.withOpacity(0.5);
+                      }
+                      return null;
+                    }),
+                    onChanged: (bool value) async {
+                      final int intValue = value ? 1 : 0;
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setInt('autoWrap', intValue);
+                      setState(() {
+                        Config.autoWrap = intValue;
+                      });
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),

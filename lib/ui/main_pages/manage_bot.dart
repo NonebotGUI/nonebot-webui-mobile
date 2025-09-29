@@ -289,15 +289,35 @@ class _HomeScreenState extends State<ManageBot> {
                                         margin: const EdgeInsets.all(8),
                                         child: SingleChildScrollView(
                                           controller: _scrollController,
-                                          child: SelectableText.rich(
-                                            TextSpan(
-                                              children: _logSpans(Data.botLog),
-                                              style: const TextStyle(
-                                                fontFamily: 'JetBrainsMono',
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
+                                          child: Config.autoWrap == 0
+                                              ? SingleChildScrollView(
+                                                  scrollDirection:
+                                                      Axis.horizontal,
+                                                  child: SelectableText.rich(
+                                                    TextSpan(
+                                                      children: _logSpans(
+                                                        Data.botLog,
+                                                      ),
+                                                      style: const TextStyle(
+                                                        fontFamily:
+                                                            'JetBrainsMono',
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )
+                                              : SelectableText.rich(
+                                                  TextSpan(
+                                                    children: _logSpans(
+                                                      Data.botLog,
+                                                    ),
+                                                    style: const TextStyle(
+                                                      fontFamily:
+                                                          'JetBrainsMono',
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
                                         ),
                                       ),
                                     ),
