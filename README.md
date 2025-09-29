@@ -26,6 +26,10 @@ _✨ NoneBot WebUI 的移动客户端 ✨_
 
 NoneBot WebUI 的移动客户端 
 
+## ❓ 为什么要做这种东西
+
+使用该客户端可有效解决Web版本加载半天的问题，同时能大大提高访问的便携性，只需打开应用程序即可使用
+
 ## 🖼️ 使用截图
 
 <div style="display: flex; justify-content: center; gap: 12px;">
