@@ -1,3 +1,3 @@
-# 🌈 Changelog 2025.09.28 🌈
+# 🌈 Changelog 2025.09.29 🌈
 by @XTxiaoting14332
-The first release
+新增“自动换行”设置选项

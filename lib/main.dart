@@ -11,7 +11,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  version = '0.1.0';
+  version = '0.1.1';
   debug = true;
 
   // 默认主题模式为 'system'
@@ -22,12 +22,19 @@ void main() async {
   final String? getToken = prefs.getString('token');
   final String? getTheme = prefs.getString('theme');
   final int? getHttps = prefs.getInt('https');
+  final int? getAutoWrap = prefs.getInt('autoWrap');
 
   if (getTheme != null) {
     Config.theme = jsonDecode(getTheme);
     initialThemeMode = Config.theme['color'] ?? 'system';
   } else {
     Config.theme['color'] = 'system';
+  }
+
+  if (getAutoWrap != null) {
+    Config.autoWrap = getAutoWrap;
+  } else {
+    Config.autoWrap = 1;
   }
 
   if (getHost != null &&

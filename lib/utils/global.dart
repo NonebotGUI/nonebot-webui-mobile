@@ -21,6 +21,9 @@ class Config {
   /// 启用https/wss
   static int useHttps = 0;
 
+  /// 是否自动换行
+  static int autoWrap = 1;
+
   /// 主题
   static Map theme = {"color": "system", "img": "default", "text": "default"};
 }
