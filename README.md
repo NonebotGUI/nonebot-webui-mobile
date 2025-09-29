@@ -30,6 +30,9 @@ NoneBot WebUI 的移动客户端
 
 使用该客户端可有效解决Web版本加载半天的问题，同时能大大提高访问的便携性，只需打开应用程序即可使用
 
+> [!warning]
+> 目前暂无iOS的预构建发行，有能力的可自行构建
+
 ## 🖼️ 使用截图
 
 <div style="display: flex; justify-content: center; gap: 12px;">
