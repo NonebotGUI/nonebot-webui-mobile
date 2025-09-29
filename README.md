@@ -28,16 +28,10 @@ NoneBot WebUI 的移动客户端
 
 ## 🖼️ 使用截图
 
-![image](imgs/1.jpg)
-
-![image](imgs/2.jpg)
-
-![image](imgs/3.jpg)
-
 <div align="center">
-    <img src="imgs/4.png" alt="image 4"/>
-    <img src="imgs/5.png" alt="image 5"/>
-    <img src="imgs/6.png" alt="image 6"/>
+    <img src="imgs/1.jpg" alt="image 4"/>
+    <img src="imgs/2.jpg" alt="image 5"/>
+    <img src="imgs/3.jpg" alt="image 6"/>
 </div>
 
 ## ⚙️安装
