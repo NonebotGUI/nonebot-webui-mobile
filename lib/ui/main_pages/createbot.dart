@@ -335,6 +335,14 @@ class _MyCustomFormState extends State<CreateBot> {
             };
             String dataJson = jsonEncode(data);
             socket.sink.add('bot/create?data=$dataJson?token=${Config.token}');
+            // 清空输入框
+            _nameController.clear();
+            _pathController.clear();
+            // 清空勾选过的选项
+            setState(() {
+              drivers.updateAll((key, value) => false);
+              adapterMap.updateAll((key, value) => false);
+            });
             showDialog(
               context: context,
               barrierDismissible: false,
