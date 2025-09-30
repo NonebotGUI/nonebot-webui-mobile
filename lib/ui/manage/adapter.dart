@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nonebot_webui_mobile/assets/my_flutter_app_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'package:web_socket_channel/status.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
 
 class AdapterStore extends StatefulWidget {
   const AdapterStore({super.key});

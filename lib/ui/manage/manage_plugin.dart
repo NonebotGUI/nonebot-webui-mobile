@@ -63,7 +63,7 @@ class _HomeScreenState extends State<ManagePlugin> {
 
   @override
   Widget build(BuildContext context) {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    Provider.of<ThemeNotifier>(context);
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.fromLTRB(32, 20, 32, 12),
@@ -222,7 +222,7 @@ class _HomeScreenState extends State<ManagePlugin> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: themeNotifier.themeMode == ThemeMode.light
+        selectedItemColor: (Config.theme['color'] == 'light')
             ? const Color.fromRGBO(234, 82, 82, 1)
             : const Color.fromRGBO(147, 112, 219, 1),
         onTap: _onItemTapped,

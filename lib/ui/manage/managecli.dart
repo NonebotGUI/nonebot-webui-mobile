@@ -9,8 +9,6 @@ import 'package:nonebot_webui_mobile/ui/manage/manage_plugin.dart';
 import 'package:nonebot_webui_mobile/ui/manage/plugin.dart';
 import 'package:nonebot_webui_mobile/utils/global.dart';
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/status.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
 
 class ManageCli extends StatefulWidget {
   const ManageCli({super.key});
