@@ -229,7 +229,9 @@ class _HomeScreenState extends State<ManagePlugin> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromRGBO(234, 82, 82, 1),
+        selectedItemColor: (Config.theme['color'] == 'light')
+            ? const Color.fromRGBO(234, 82, 82, 1)
+            : const Color.fromRGBO(147, 112, 219, 1),
         onTap: _onItemTapped,
       ),
     );
