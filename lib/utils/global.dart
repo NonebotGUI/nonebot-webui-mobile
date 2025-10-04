@@ -65,6 +65,10 @@ class Data {
 
   /// 安装Bot时的日志
   static List installBotLog = [];
+
+  static bool hasStderr = false;
+
+  static String botStderr = '';
 }
 
 // 神秘开关

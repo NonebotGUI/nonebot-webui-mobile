@@ -57,6 +57,7 @@ class _HomeScreenState extends State<MainPage> {
       if (gOnOpen.isNotEmpty) {
         socket.sink.add("bot/log/$gOnOpen?token=${Config.token}");
         socket.sink.add("botInfo/$gOnOpen?token=${Config.token}");
+        socket.sink.add("bot/stderr/$gOnOpen?token=${Config.token}");
         setState(() {});
       }
     });

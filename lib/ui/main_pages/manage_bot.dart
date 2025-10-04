@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:nonebot_webui_mobile/ui/manage/stderr.dart';
 import 'package:nonebot_webui_mobile/utils/global.dart';
 import 'package:nonebot_webui_mobile/ui/manage/managecli.dart';
 
@@ -435,6 +436,20 @@ class _HomeScreenState extends State<ManageBot> {
                                           MaterialPageRoute(
                                             builder: (context) =>
                                                 const ManageCli(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.error_rounded),
+                                      tooltip: '查看错误日志',
+                                      iconSize: height * 0.03,
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const StderrPage(),
                                           ),
                                         );
                                       },
