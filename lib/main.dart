@@ -11,10 +11,8 @@ import 'package:flutter/services.dart' show rootBundle;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  version = '0.1.1';
-  debug = true;
-
-  // 默认主题模式为 'system'
+  version = '0.1.2';
+  debug = false;
   String initialThemeMode = 'system';
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? getHost = prefs.getString('host');
@@ -57,7 +55,6 @@ void main() async {
   );
 }
 
-// 将字符串转换为 ThemeMode 枚举
 ThemeMode _getThemeModeFromString(String themeMode) {
   switch (themeMode) {
     case 'light':

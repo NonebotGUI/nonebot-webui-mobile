@@ -1,4 +1,4 @@
-# 🌈 Changelog 2025.09.30 🌈
+# 🌈 Changelog 2025.10.04 🌈
 by @XTxiaoting14332
-修复底部选择栏的颜色Bug
-点击创建以后自动清除输入的内容
+新增stderr的查看页面
+新增Universal的构建
