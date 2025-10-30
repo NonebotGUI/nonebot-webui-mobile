@@ -49,10 +49,10 @@ class _HomeScreenState extends State<ManagePlugin> {
       if (mounted) {
         setState(() {
           socket.sink.add(
-            'plugin/list/${Data.botInfo['id']}?token=${Config.token}',
+            'plugin/list/${Data.botInfo['id']}&token=${Config.token}',
           );
           socket.sink.add(
-            'plugin/disabledList/${Data.botInfo['id']}?token=${Config.token}',
+            'plugin/disabledList/${Data.botInfo['id']}&token=${Config.token}',
           );
         });
       }
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<ManagePlugin> {
                                         String dataStr = jsonEncode(data);
                                         setState(() {
                                           socket.sink.add(
-                                            'plugin/disable?data=$dataStr?token=${Config.token}',
+                                            'plugin/disable?data=$dataStr&token=${Config.token}',
                                           );
                                         });
                                       },
@@ -203,7 +203,7 @@ class _HomeScreenState extends State<ManagePlugin> {
                                   String dataStr = jsonEncode(data);
                                   setState(() {
                                     socket.sink.add(
-                                      'plugin/enable?data=$dataStr?token=${Config.token}',
+                                      'plugin/enable?data=$dataStr&token=${Config.token}',
                                     );
                                   });
                                 },
@@ -241,5 +241,5 @@ class _HomeScreenState extends State<ManagePlugin> {
 void _uninstall(name) async {
   Map data = {'name': name, 'id': Data.botInfo['id']};
   String dataStr = jsonEncode(data);
-  socket.sink.add('plugin/uninstall?data=$dataStr?token=${Config.token}');
+  socket.sink.add('plugin/uninstall?data=$dataStr&token=${Config.token}');
 }

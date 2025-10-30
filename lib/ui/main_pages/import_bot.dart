@@ -126,7 +126,7 @@ class _HomeScreenState extends State<importBot> {
                             };
                             String data = jsonEncode(res);
                             socket.sink.add(
-                              'bot/import?data=$data?token=${Config.token}',
+                              'bot/import?data=$data&token=${Config.token}',
                             );
                             setState(() {
                               // 清空

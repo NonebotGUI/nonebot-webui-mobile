@@ -168,7 +168,7 @@ class _MyHomePageState extends State<AdapterStore> {
                                     };
                                     String dataStr = jsonEncode(data);
                                     socket.sink.add(
-                                      'adapter/install?data=$dataStr?token=${Config.token}',
+                                      'adapter/install?data=$dataStr&token=${Config.token}',
                                     );
                                     showDialog(
                                       context: context,

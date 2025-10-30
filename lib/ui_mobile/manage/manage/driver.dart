@@ -172,7 +172,7 @@ class _MyHomePageState extends State<DriverStoreMobile> {
                                                     data,
                                                   );
                                                   socket.sink.add(
-                                                    'driver/install?data=$dataStr?token=${Config.token}',
+                                                    'driver/install?data=$dataStr&token=${Config.token}',
                                                   );
                                                   showDialog(
                                                     context: context,
@@ -299,7 +299,7 @@ class _MyHomePageState extends State<DriverStoreMobile> {
                                     };
                                     String dataStr = jsonEncode(data);
                                     socket.sink.add(
-                                      'driver/install?data=$dataStr?token=${Config.token}',
+                                      'driver/install?data=$dataStr&token=${Config.token}',
                                     );
                                     showDialog(
                                       context: context,

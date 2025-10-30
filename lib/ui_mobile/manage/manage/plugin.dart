@@ -172,7 +172,7 @@ class _MyHomePageState extends State<PluginStoreMobile> {
                                                     data,
                                                   );
                                                   socket.sink.add(
-                                                    'plugin/install?data=$dataStr?token=${Config.token}',
+                                                    'plugin/install?data=$dataStr&token=${Config.token}',
                                                   );
                                                   showDialog(
                                                     context: context,
@@ -319,7 +319,7 @@ class _MyHomePageState extends State<PluginStoreMobile> {
                                     };
                                     String dataStr = jsonEncode(data);
                                     socket.sink.add(
-                                      'plugin/install?data=$dataStr?token=${Config.token}',
+                                      'plugin/install?data=$dataStr&token=${Config.token}',
                                     );
                                     showDialog(
                                       context: context,

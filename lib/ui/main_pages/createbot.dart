@@ -334,7 +334,7 @@ class _MyCustomFormState extends State<CreateBot> {
               "adapters": buildSelectedAdapterOptions(),
             };
             String dataJson = jsonEncode(data);
-            socket.sink.add('bot/create?data=$dataJson?token=${Config.token}');
+            socket.sink.add('bot/create?data=$dataJson&token=${Config.token}');
             // 清空输入框
             _nameController.clear();
             _pathController.clear();

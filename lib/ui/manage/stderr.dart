@@ -57,7 +57,7 @@ class _StderrPageState extends State<StderrPage> {
 
   void _clearStderr() {
     if (gOnOpen.isNotEmpty) {
-      socket.sink.add("bot/clearStderr/$gOnOpen?token=${Config.token}");
+      socket.sink.add("bot/clearStderr/$gOnOpen&token=${Config.token}");
     }
   }
 

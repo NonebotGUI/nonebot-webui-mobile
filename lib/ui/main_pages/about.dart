@@ -59,7 +59,7 @@ class _MoreState extends State<About> {
   @override
   void initState() {
     super.initState();
-    socket.sink.add('version?token=${Config.token}');
+    socket.sink.add('version&token=${Config.token}');
     Future.delayed(const Duration(milliseconds: 850), () {
       setState(() {});
     });

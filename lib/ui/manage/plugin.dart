@@ -164,7 +164,7 @@ class _MyHomePageState extends State<PluginStore> {
                                     };
                                     String dataStr = jsonEncode(data);
                                     socket.sink.add(
-                                      'plugin/install?data=$dataStr?token=${Config.token}',
+                                      'plugin/install?data=$dataStr&token=${Config.token}',
                                     );
                                     showDialog(
                                       context: context,

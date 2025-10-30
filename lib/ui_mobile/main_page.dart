@@ -39,10 +39,10 @@ class _HomeScreenState extends State<MainPageMobile> {
   //每过1.5秒获取一次
   getSystemStatus() async {
     timer = Timer.periodic(const Duration(milliseconds: 1500), (timer) async {
-      socket.sink.add('ping?token=${Config.token}');
-      socket.sink.add('system?token=${Config.token}');
-      socket.sink.add('platform?token=${Config.token}');
-      socket.sink.add('botList?token=${Config.token}');
+      socket.sink.add('ping&token=${Config.token}');
+      socket.sink.add('system&token=${Config.token}');
+      socket.sink.add('platform&token=${Config.token}');
+      socket.sink.add('botList&token=${Config.token}');
       runningCount = Data.botList
           .where((bot) => bot['isRunning'] == true)
           .length;
@@ -54,9 +54,9 @@ class _HomeScreenState extends State<MainPageMobile> {
   getBotLog() async {
     timer = Timer.periodic(const Duration(milliseconds: 1500), (timer2) async {
       if (gOnOpen.isNotEmpty) {
-        socket.sink.add("bot/log/$gOnOpen?token=${Config.token}");
-        socket.sink.add("botInfo/$gOnOpen?token=${Config.token}");
-        socket.sink.add("bot/stderr/$gOnOpen?token=${Config.token}");
+        socket.sink.add("bot/log/$gOnOpen&token=${Config.token}");
+        socket.sink.add("botInfo/$gOnOpen&token=${Config.token}");
+        socket.sink.add("bot/stderr/$gOnOpen&token=${Config.token}");
         setState(() {});
       }
     });
@@ -516,7 +516,7 @@ class _HomeScreenState extends State<MainPageMobile> {
                                       return InkWell(
                                         onTap: () {
                                           socket.sink.add(
-                                            "botInfo/${Data.botList[index]['id']}?token=${Config.token}",
+                                            "botInfo/${Data.botList[index]['id']}&token=${Config.token}",
                                           );
                                           gOnOpen = Data.botList[index]['id'];
                                           setState(() {
@@ -572,7 +572,7 @@ class _HomeScreenState extends State<MainPageMobile> {
                                                         tooltip: '停止',
                                                         onPressed: () {
                                                           socket.sink.add(
-                                                            'bot/stop/${Data.botList[index]['id']}?token=${Config.token}',
+                                                            'bot/stop/${Data.botList[index]['id']}&token=${Config.token}',
                                                           );
                                                         },
                                                       ),
@@ -586,7 +586,7 @@ class _HomeScreenState extends State<MainPageMobile> {
                                                         tooltip: '启动',
                                                         onPressed: () {
                                                           socket.sink.add(
-                                                            'bot/run/${Data.botList[index]['id']}?token=${Config.token}',
+                                                            'bot/run/${Data.botList[index]['id']}&token=${Config.token}',
                                                           );
                                                         },
                                                       ),

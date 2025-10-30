@@ -255,7 +255,7 @@ class _HomeScreenState extends State<ManageBot> {
                                           ),
                                         )
                                       : socket.sink.add(
-                                          'bot/run/${Data.botInfo['id']}?token=${Config.token}',
+                                          'bot/run/${Data.botInfo['id']}&token=${Config.token}',
                                         );
                                 },
                                 tooltip: "启动",
@@ -266,7 +266,7 @@ class _HomeScreenState extends State<ManageBot> {
                                 onPressed: () {
                                   Data.botInfo['isRunning']
                                       ? socket.sink.add(
-                                          'bot/stop/${Data.botInfo['id']}?token=${Config.token}',
+                                          'bot/stop/${Data.botInfo['id']}&token=${Config.token}',
                                         )
                                       : ScaffoldMessenger.of(
                                           context,
@@ -284,7 +284,7 @@ class _HomeScreenState extends State<ManageBot> {
                                 onPressed: () {
                                   Data.botInfo['isRunning']
                                       ? socket.sink.add(
-                                          'bot/restart/${Data.botInfo['id']}?token=${Config.token}',
+                                          'bot/restart/${Data.botInfo['id']}&token=${Config.token}',
                                         )
                                       : ScaffoldMessenger.of(
                                           context,
@@ -533,7 +533,7 @@ class _BotInfoDialogState extends State<BotInfoDialog> {
                                   TextButton(
                                     onPressed: () {
                                       socket.sink.add(
-                                        'bot/delete/${Data.botInfo['id']}?token=${Config.token}',
+                                        'bot/delete/${Data.botInfo['id']}&token=${Config.token}',
                                       );
                                       gOnOpen = '';
                                       setState(() {});
@@ -547,7 +547,7 @@ class _BotInfoDialogState extends State<BotInfoDialog> {
                                   TextButton(
                                     onPressed: () {
                                       socket.sink.add(
-                                        'bot/remove/${Data.botInfo['id']}?token=${Config.token}',
+                                        'bot/remove/${Data.botInfo['id']}&token=${Config.token}',
                                       );
                                       gOnOpen = '';
                                       setState(() {});
@@ -596,7 +596,7 @@ class _BotInfoDialogState extends State<BotInfoDialog> {
                                         };
                                         String res = jsonEncode(data);
                                         socket.sink.add(
-                                          'bot/rename?data=$res?token=${Config.token}',
+                                          'bot/rename?data=$res&token=${Config.token}',
                                         );
                                         Navigator.of(context).pop();
                                         setState(() {});
