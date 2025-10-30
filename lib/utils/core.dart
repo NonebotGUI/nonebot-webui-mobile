@@ -17,9 +17,9 @@ void connectToWebSocket(host, port, int ws) {
     }
   } else {
     if (ws == 1) {
-      wsUrl = Uri.parse('wss://$host/nbgui/v1/ws');
+      wsUrl = Uri.parse('wss://$host:$port/nbgui/v1/ws');
     } else {
-      wsUrl = Uri.parse('ws://$host/nbgui/v1/ws');
+      wsUrl = Uri.parse('ws://$host:$port/nbgui/v1/ws');
     }
   }
   socket = WebSocketChannel.connect(wsUrl);

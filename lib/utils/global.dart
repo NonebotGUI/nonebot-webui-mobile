@@ -69,6 +69,15 @@ class Data {
   static bool hasStderr = false;
 
   static String botStderr = '';
+
+  /// 文件列表
+  static List fileList = [];
+
+  /// 当前处于的子路径
+  static String currentPath = '/';
+
+  /// 文件内容（仅支持文本类文件）
+  static String fileContent = '';
 }
 
 // 神秘开关

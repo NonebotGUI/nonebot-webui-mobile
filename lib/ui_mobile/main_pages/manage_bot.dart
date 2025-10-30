@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:nonebot_webui_mobile/ui/manage/files.dart';
 import 'package:nonebot_webui_mobile/ui/manage/stderr.dart';
 import 'package:nonebot_webui_mobile/ui_mobile/manage/list.dart';
 import 'package:flutter/material.dart';
@@ -321,6 +322,19 @@ class _HomeScreenState extends State<ManageBot> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => const StderrPage(),
+                                    ),
+                                  );
+                                },
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.folder_rounded),
+                                tooltip: '文件管理',
+                                iconSize: height * 0.03,
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Files(),
                                     ),
                                   );
                                 },
