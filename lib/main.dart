@@ -11,7 +11,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  version = '0.1.3+1';
+  version = '0.1.3+2';
   debug = false;
   String initialThemeMode = 'system';
   final SharedPreferences prefs = await SharedPreferences.getInstance();
