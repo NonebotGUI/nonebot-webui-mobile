@@ -14,6 +14,29 @@ class _MoreState extends State<About> {
   int tapCount = 0;
   final int tapsToReveal = 5;
 
+  final List<Map<String, String>> acknowledgements = [
+    {
+      'avatar': 'http://q1.qlogo.cn/g?b=qq&nk=2125714976&s=100',
+      'name': '【夜风】NightWind',
+      'contribution': '项目主要维护者',
+    },
+    {
+      'avatar': 'http://q1.qlogo.cn/g?b=qq&nk=1651930562&s=100',
+      'name': 'xuebi',
+      'contribution': 'WebUI Docker 镜像维护者',
+    },
+    {
+      'avatar': 'http://q1.qlogo.cn/g?b=qq&nk=2740324073&s=100',
+      'name': 'Komorebi',
+      'contribution': '项目Readme格式贡献者',
+    },
+    {
+      'avatar': 'http://q1.qlogo.cn/g?b=qq&nk=1113956005&s=100',
+      'name': 'concy',
+      'contribution': '早期测试与反馈',
+    },
+  ];
+
   void _handleTap() {
     setState(() {
       tapCount++;
@@ -54,6 +77,42 @@ class _MoreState extends State<About> {
     setState(() {
       tapCount = 0;
     });
+  }
+
+  void _showAcknowledgementsDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('鸣谢'),
+          content: SizedBox(
+            width: double.maxFinite,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: acknowledgements.length,
+              itemBuilder: (BuildContext context, int index) {
+                final ack = acknowledgements[index];
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(ack['avatar']!),
+                  ),
+                  title: Text(ack['name']!),
+                  subtitle: Text(ack['contribution']!),
+                );
+              },
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('关闭'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -177,6 +236,12 @@ class _MoreState extends State<About> {
                   },
                   icon: const Icon(Icons.book_rounded),
                   tooltip: '文档地址',
+                  iconSize: 30,
+                ),
+                IconButton(
+                  onPressed: _showAcknowledgementsDialog,
+                  icon: const Icon(Icons.people_alt_rounded),
+                  tooltip: '鸣谢',
                   iconSize: 30,
                 ),
               ],
