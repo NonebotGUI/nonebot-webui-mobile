@@ -519,6 +519,35 @@ class _BotInfoDialogState extends State<BotInfoDialog> {
                       _item('路径', Data.botInfo['path']),
                       _item('PID', Data.botInfo['pid'].toString()),
                       _item('状态', Data.botInfo['isRunning'] ? '运行中' : '未运行'),
+                      const SizedBox(height: 10),
+                      const Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "自启动",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Switch(
+                            inactiveTrackColor: Colors.grey,
+                            value: Data.botInfo['autoStart'] ?? false,
+                            onChanged: (value) {
+                              socket.sink.add(
+                                'bot/toggleAutoStart/${Data.botInfo['id']}&token=${Config.token}',
+                              );
+                              setState(() {
+                                Data.botInfo['autoStart'] = value;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
