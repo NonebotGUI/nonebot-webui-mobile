@@ -18,7 +18,7 @@ class MainPageMobile extends StatefulWidget {
   State<MainPageMobile> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<MainPageMobile> {
+class _HomeScreenState extends State<MainPageMobile> with WidgetsBindingObserver {
   final myController = TextEditingController();
   int _selectedIndex = 0;
   Timer? timer;
@@ -29,6 +29,7 @@ class _HomeScreenState extends State<MainPageMobile> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     connectToWebSocket(Config.wsHost, Config.wsPort, Config.useHttps);
     setState(() {
       getSystemStatus();
@@ -64,9 +65,19 @@ class _HomeScreenState extends State<MainPageMobile> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     timer?.cancel();
     timer2?.cancel();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      if (!Data.isConnected) {
+        reconnect();
+      }
+    }
   }
 
   Widget _buildDrawerItem({

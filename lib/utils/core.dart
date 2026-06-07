@@ -26,14 +26,21 @@ void connectToWebSocket(host, port, int ws) {
   broadcastStream = socket.stream.asBroadcastStream();
   broadcastStream!.listen((event) {
     wsHandler(event);
+  }, onDone: () {
+    Data.isConnected = false;
+    reconnect();
+  }, onError: (error) {
+    Data.isConnected = false;
+    reconnect();
   }, cancelOnError: false);
 }
 
 void reconnect() {
   //循环重连
-  timer = Timer.periodic(const Duration(milliseconds: 1500), (timer) {
+  if (timer != null && timer!.isActive) return;
+  timer = Timer.periodic(const Duration(milliseconds: 1500), (t) {
     if (Data.isConnected) {
-      timer.cancel();
+      t.cancel();
     } else {
       socket.sink.close();
       connectToWebSocket(Config.wsHost, Config.wsPort, Config.useHttps);
